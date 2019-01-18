@@ -52,7 +52,7 @@ intersectR = function(...) {
   }
 }
 
-#' A function replacing mutple values from a vector
+#' A function replacing mutiple values from a vector
 #'
 #' @param valueData Input
 #' @param patterns A vector containing which values should be replaced
@@ -82,7 +82,7 @@ valueConvert = function(valueData, patterns, replacements, other = NA) {
   return(valueData)
 }
 
-#' A function replacing mutple values from a vector, but using grep.
+#' A function replacing mutiple values from a vector, but using grep.
 #' Thus, patterns can be part of the values, or any other pattern grep understands.
 #'
 #' @param valueData Input

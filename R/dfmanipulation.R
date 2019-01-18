@@ -22,11 +22,3 @@ sortby = function(x, by, decreasing = FALSE, na.last = NA) {
   }
   return(x[order(x[,which(colnames(x) == by)], na.last = na.last, decreasing = decreasing),])
 }
-
-
-set.seed(42)
-df = data.frame(start = 1:20,
-                ran = sample(1:20, replace = TRUE))
-
-sortby(df, "ran")
-
