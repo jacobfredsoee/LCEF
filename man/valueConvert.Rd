@@ -2,7 +2,7 @@
 % Please edit documentation in R/stringmanipulation.R
 \name{valueConvert}
 \alias{valueConvert}
-\title{A function replacing mutple values from a vector}
+\title{A function replacing mutiple values from a vector}
 \usage{
 valueConvert(valueData, patterns, replacements, other = NA)
 }
@@ -19,7 +19,7 @@ valueConvert(valueData, patterns, replacements, other = NA)
 a vector with the replaced values
 }
 \description{
-A function replacing mutple values from a vector
+A function replacing mutiple values from a vector
 }
 \examples{
 

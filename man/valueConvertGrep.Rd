@@ -2,7 +2,7 @@
 % Please edit documentation in R/stringmanipulation.R
 \name{valueConvertGrep}
 \alias{valueConvertGrep}
-\title{A function replacing mutple values from a vector, but using grep.
+\title{A function replacing mutiple values from a vector, but using grep.
 Thus, patterns can be part of the values, or any other pattern grep understands.}
 \usage{
 valueConvertGrep(valueData, patterns, replacements, other = NA)
@@ -29,6 +29,6 @@ valueConvert(origin, patternVector, replacementVector, "unknown")
 #returns "1", "1", "1", "3", "2", "1", "unknown"
 }
 \description{
-A function replacing mutple values from a vector, but using grep.
+A function replacing mutiple values from a vector, but using grep.
 Thus, patterns can be part of the values, or any other pattern grep understands.
 }
