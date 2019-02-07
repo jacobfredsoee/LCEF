@@ -1,4 +1,5 @@
 #' A function for plotting mutiple gg plots
+#'
 #' Found at http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 #'
 #' ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
@@ -16,6 +17,7 @@
 # 3 will go all the way across the bottom.
 multiplot = function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   require(grid)
+  require(ggplot2)
 
   # Make a list from the ... arguments and plotlist
   plots <- c(list(...), plotlist)

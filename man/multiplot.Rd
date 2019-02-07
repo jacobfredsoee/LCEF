@@ -2,8 +2,7 @@
 % Please edit documentation in R/plotting.R
 \name{multiplot}
 \alias{multiplot}
-\title{A function for plotting mutiple gg plots
-Found at http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/}
+\title{A function for plotting mutiple gg plots}
 \usage{
 multiplot(..., plotlist = NULL, file, cols = 1, layout = NULL)
 }
@@ -20,6 +19,9 @@ multiplot(..., plotlist = NULL, file, cols = 1, layout = NULL)
 nothing
 }
 \description{
+Found at http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
+}
+\details{
 ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
 }
 \examples{
