@@ -5,10 +5,22 @@
 #' @param asNum Should the results be return as integers, i.e. numeric. Defaults to TRUE
 #' @return a vector with patient ids
 #'
+#' @examples
+#' sampleNames = c("P04A08417A", "P04A08417A_postfix", "prefix_P04A08417A_postfix")
+#' patientIDFromSample(sampleNames)
+#'
+#' returns: 8417, 8417, 8417
+#'
 patientIDFromSample = function(sampleNames, asNum = TRUE) {
 
   #sampleID string pattern: XNNXNNNNNX, where X = letter, N = number, e.g. P28B00005E
-  patientID = sub("[A-Z]", "", sub("[A-Z]..[A-Z]", "", sampleNames))
+  patientID = sapply(sampleNames, function(sampleName) {
+    startFix = regexec("P[0-9]{2}[A-Z]", sampleName)
+    startPos = startFix[[1]][1] + as.numeric(attributes(startFix[[1]])[1])
+    stopPos = as.numeric(attributes(regexec("P[0-9]{2}[A-Z][0-9]{5}", sampleName)[[1]])[1]) + startFix[[1]][1]
+
+    substr(sampleName, startPos, (stopPos - 1))
+  })
 
   if(asNum) return(as.integer(patientID))
   return(patientID)
