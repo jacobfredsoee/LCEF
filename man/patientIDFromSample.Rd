@@ -17,3 +17,10 @@ a vector with patient ids
 \description{
 A function for getting patient ID from biobank labels
 }
+\examples{
+sampleNames = c("P04A08417A", "P04A08417A_postfix", "prefix_P04A08417A_postfix")
+patientIDFromSample(sampleNames)
+
+returns: 8417, 8417, 8417
+
+}
