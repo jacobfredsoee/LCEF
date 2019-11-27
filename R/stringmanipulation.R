@@ -103,7 +103,7 @@ valueConvert = function(valueData, patterns, replacements, other = NA) {
 #' @param other Any vales which is not found in 'patterns' is set to this. Defaults to NA
 #' @return a vector with the replaced values
 #'
-#'#' @example
+#' @examples
 #'
 #' origin = c("gleason 3+3", "gleason 3+3=6", "gleason 3+3", "gleason 4+3=7", "gleason 3+4=7", "gleason 3+3", "gleason 7")
 #' patternVector = c("3[+]3", "4[+]3", "3[+]4")
@@ -122,4 +122,77 @@ valueConvertGrep = function(valueData, patterns, replacements, other = NA) {
   valueData[otherValues] = other
 
   return(valueData)
+}
+
+#' A function for calculating the number of years between two dates
+#'
+#' @param date1 First date, oldest date
+#' @param date2 Second date, newest date
+#' @param d Number of digits to round to
+#' @return a vector number of years between the two dates
+#'
+#' @examples
+#'
+#' datediffYears("1957-05-18", "2018-11-02")
+#'
+#' #returns "61.5"
+#'
+datediffYears = function(date1, date2, d = 1) {
+
+  YEAR_LENGTH = 365.24219
+
+  date1 = try(as.Date(date1), silent = FALSE)
+  date2 = try(as.Date(date2), silent = FALSE)
+
+  as.numeric(round((date2 - date1) / YEAR_LENGTH, d))
+}
+
+#' A function for calculating the birthday from a CPR number, taking the century into account
+#'
+#' @param cpr CPR number. Any format will work.
+#' @return a Date of the birthday
+#'
+#' @examples
+#'
+#' birthdayFromCPR("290511-4487")
+#' returns "2011-05-29"
+#'
+#' birthdayFromCPR("290511-3487")
+#' returns "1911-05-29"
+#'
+#'
+birthdayFromCPR = function(cpr) {
+
+  #First format the CPR
+  if(is.na(cpr) | nchar(cpr) < 9 | (nchar(cpr) > 10 & !grepl("-", cpr))) stop("CPR number not in recognizable format")
+  cpr = as.character(cpr)
+  if(grepl("-", cpr, fixed = TRUE)) {
+    if(nchar(cpr) == 11) finalCPR = gsub("-", "", cpr) #ok
+    if(nchar(cpr) == 10) finalCPR = paste("0", gsub("-", "", cpr), sep = "") #needs padding
+  } else
+  {
+    if(nchar(cpr) == 10) finalCPR = cpr #ok
+    if(nchar(cpr) == 9) finalCPR = paste("0", cpr, sep = "") #needs padding
+  }
+
+  #Find dates
+  year = as.numeric(substr(finalCPR, 5, 6))
+  month = as.numeric(substr(finalCPR, 3, 4))
+  day = as.numeric(substr(finalCPR, 1, 2))
+
+  #Find century
+  century = 19
+  seven = as.numeric(substr(finalCPR, 7, 7))
+  if((seven == 4 | seven == 9) & year <= 36) {
+    century = 20
+  } else if(seven >= 5 & seven <= 9) {
+    if(year <= 57) {
+      century = 20
+    } else {
+      century = 18
+    }
+  }
+
+  #Form the date
+  return(as.Date(paste(paste0(century, year), month, day, sep = "-")))
 }

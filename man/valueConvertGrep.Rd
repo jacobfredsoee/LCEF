@@ -18,8 +18,12 @@ valueConvertGrep(valueData, patterns, replacements, other = NA)
 }
 \value{
 a vector with the replaced values
-
-#' @example
+}
+\description{
+A function replacing mutiple values from a vector, but using grep.
+Thus, patterns can be part of the values, or any other pattern grep understands.
+}
+\examples{
 
 origin = c("gleason 3+3", "gleason 3+3=6", "gleason 3+3", "gleason 4+3=7", "gleason 3+4=7", "gleason 3+3", "gleason 7")
 patternVector = c("3[+]3", "4[+]3", "3[+]4")
@@ -27,8 +31,5 @@ replacementVector = c("1", "3", "2")
 valueConvert(origin, patternVector, replacementVector, "unknown")
 
 #returns "1", "1", "1", "3", "2", "1", "unknown"
-}
-\description{
-A function replacing mutiple values from a vector, but using grep.
-Thus, patterns can be part of the values, or any other pattern grep understands.
+
 }
