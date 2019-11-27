@@ -63,7 +63,6 @@ multiplot = function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 #' @examples
 #' ggkm(survfit(Surv(RFSMonths, RFSStatus) ~ riskGroup), timeby = 12)
 #'
-
 ggkm = function(sfit,
                 table = TRUE,
                 returns = FALSE,
