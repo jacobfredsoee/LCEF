@@ -176,9 +176,9 @@ birthdayFromCPR = function(cpr) {
   }
 
   #Find dates
-  year = as.numeric(substr(finalCPR, 5, 6))
-  month = as.numeric(substr(finalCPR, 3, 4))
-  day = as.numeric(substr(finalCPR, 1, 2))
+  year = substr(finalCPR, 5, 6)
+  month = substr(finalCPR, 3, 4)
+  day = substr(finalCPR, 1, 2)
 
   #Find century
   century = 19
