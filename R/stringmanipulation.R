@@ -183,16 +183,18 @@ birthdayFromCPR = function(cpr) {
   #Find century
   century = 19
   seven = as.numeric(substr(finalCPR, 7, 7))
-  if((seven == 4 | seven == 9) & year <= 36) {
-    century = 20
-  } else if(seven >= 5 & seven <= 9) {
-    if(year <= 57) {
+  if ((seven == 4 | seven == 9)) {
+    if(year <= 36) {
       century = 20
     } else {
+      century = 19
+    }
+  } else if (seven >= 5 & seven <= 9) {
+    if (year <= 57) {
+      century = 20
+    }
+    else {
       century = 18
     }
   }
-
-  #Form the date
-  return(as.Date(paste(paste0(century, year), month, day, sep = "-")))
-}
+)
