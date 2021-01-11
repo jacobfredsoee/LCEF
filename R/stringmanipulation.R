@@ -197,4 +197,4 @@ birthdayFromCPR = function(cpr) {
       century = 18
     }
   }
-)
+}
