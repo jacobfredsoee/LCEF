@@ -1,7 +1,7 @@
 Package: LCEF
 Type: Package
 Title: A collection of my own most used custom functions (Lord Commander's Essential Functions)
-Version: 0.3.1
+Version: 0.3.3
 Author: Jacob Fredsøe
 Maintainer: Jacob Fredsøe <jcf@clin.au.dk>
 Description: some sorting, some manipulations of strings, data.frames etc. and quality of life functions for CPR number handling

@@ -197,4 +197,6 @@ birthdayFromCPR = function(cpr) {
       century = 18
     }
   }
+
+  return(paste0(century, year, "-", month, "-", day))
 }
